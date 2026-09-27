@@ -1,0 +1,160 @@
+/* Bookbound's colors, spacing, header and type are shared through task2.css. */
+.nav-links a[aria-current="page"] { color: var(--accent); text-decoration: underline; }
+.layout-demo { padding-bottom: var(--space-5); }
+.layout-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  padding-block: var(--space-2);
+  border-block: 1px solid var(--line);
+}
+.collection-count { color: var(--muted); font-size: 0.9rem; }
+.view-controls { display: flex; flex-wrap: wrap; gap: 0.25rem; margin: 0; padding: 0; border: 0; }
+.view-controls label {
+  padding: 0.65em 1em;
+  border: 1px solid transparent;
+  border-radius: 0.2rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+.view-controls label:hover { background: var(--soft); }
+.view-controls input:checked + label,
+.layout-demo:not(:has(.view-controls input:checked)):has(.view-grid) label[for="grid-view"],
+.layout-demo:not(:has(.view-controls input:checked)):has(.view-list) label[for="list-view"],
+.layout-demo:not(:has(.view-controls input:checked)):has(.view-magazine) label[for="magazine-view"] {
+  color: var(--surface);
+  background: var(--accent);
+}
+.view-controls input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 3px; }
+.view-controls input, .visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* The collection always uses Grid. Every article always uses Flexbox.
+   A mode class controls the initial layout; the radios are CSS-only previews. */
+.articles {
+  --gap: clamp(0.75rem, 1.6vw, 1.5rem);
+  --direction: column;
+  --image-size: 100%;
+  --image-align: stretch;
+  --body-padding: clamp(0.75rem, 1.6vw, 1.5rem);
+  --date-size: auto;
+  --date-align: start;
+  --date-text: left;
+  --date-padding: 0 var(--body-padding) var(--body-padding);
+  --lead-columns: auto;
+  --lead-rows: auto;
+  --lead-title: var(--title-size);
+  --title-size: clamp(1.3rem, 1.7vw, 1.65rem);
+  display: grid;
+  grid-template-columns: var(--tracks);
+  gap: var(--gap);
+  align-items: stretch;
+}
+
+/* 1. auto-fit adds or removes columns as the available space changes. */
+.view-grid,
+.layout-demo:has(#grid-view:checked) .articles {
+  --tracks: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+}
+
+/* 2. One Grid column; Flexbox makes each item a compact horizontal row. */
+.view-list,
+.layout-demo:has(#list-view:checked) .articles {
+  --tracks: minmax(0, 1fr);
+  --direction: row;
+  --image-size: min(18%, 9rem);
+  --image-align: center;
+  --date-size: 17%;
+  --date-align: center;
+  --date-text: right;
+  --date-padding: clamp(0.4rem, 1.5vw, 1.5rem);
+  --title-size: clamp(1.1rem, 1.6vw, 1.5rem);
+}
+
+/* 3. At least two flexible tracks always fit, even on a narrow screen.
+   The lead can span two columns without creating an overflowing track. */
+.view-magazine,
+.layout-demo:has(#magazine-view:checked) .articles {
+  --tracks: repeat(auto-fit, minmax(min(calc((100% - var(--gap)) / 2), 17rem), 1fr));
+  --lead-columns: span 2;
+  --lead-rows: span 2;
+  --lead-title: clamp(1.8rem, 3.3vw, 3rem);
+}
+
+/* A preview resets mode-specific values before applying its own rules.
+   These resets matter when the source class is already list or magazine. */
+.layout-demo:has(#grid-view:checked, #magazine-view:checked) .articles {
+  --direction: column;
+  --image-size: 100%;
+  --image-align: stretch;
+  --date-size: auto;
+  --date-align: start;
+  --date-text: left;
+  --date-padding: 0 var(--body-padding) var(--body-padding);
+  --title-size: clamp(1.3rem, 1.7vw, 1.65rem);
+}
+.layout-demo:has(#grid-view:checked, #list-view:checked) .articles {
+  --lead-columns: auto;
+  --lead-rows: auto;
+  --lead-title: var(--title-size);
+}
+
+.story {
+  display: flex;
+  flex-direction: var(--direction);
+  min-inline-size: 0;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.story-image {
+  display: block;
+  flex: 0 0 auto;
+  align-self: var(--image-align);
+  inline-size: var(--image-size);
+  block-size: auto;
+  min-inline-size: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+.story-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-inline-size: 0;
+  gap: var(--space-1);
+  padding: var(--body-padding);
+}
+.story h2 {
+  font-family: var(--serif);
+  font-size: var(--title-size);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+.story-author { color: var(--accent); font-size: 0.8rem; }
+.story-description { margin-top: 0.25rem; font-size: 0.9rem; }
+.story-date {
+  flex: 0 0 var(--date-size);
+  align-self: var(--date-align);
+  min-inline-size: 0;
+  padding: var(--date-padding);
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-align: var(--date-text);
+  overflow-wrap: anywhere;
+}
+.story-lead {
+  grid-column: var(--lead-columns);
+  grid-row: var(--lead-rows);
+}
+.story-lead h2 { font-size: var(--lead-title); }

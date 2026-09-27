@@ -1,0 +1,199 @@
+/* Shared colors, typography and spacing for the whole library. */
+:root {
+  --paper: #f7f5f0;
+  --surface: #fffdf9;
+  --ink: #25241f;
+  --muted: #615f58;
+  --accent: #78392f;
+  --accent-hover: #5b2922;
+  --line: #d7d1c5;
+  --soft: #eee8dc;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --serif: Georgia, "Times New Roman", serif;
+  font-family: Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+h1, h2, h3, p { margin: 0; }
+a { color: inherit; text-underline-offset: 0.2em; }
+a, p, h1, h2, h3, li, button { overflow-wrap: anywhere; }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.page-width { inline-size: 92%; margin-inline: auto; }
+.site-header { border-bottom: 1px solid var(--line); background: var(--surface); }
+.logo { flex: none; font-family: var(--serif); font-size: 1.85rem; letter-spacing: -0.04em; line-height: 1; text-decoration: none; }
+.nav-links a { font-size: 0.85rem; text-decoration: none; }
+.nav-links a:hover, .text-link:hover { color: var(--accent); text-decoration: underline; }
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8em 1.15em;
+  border: 1px solid var(--accent);
+  border-radius: 0.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  color: var(--surface);
+  background: var(--accent);
+}
+.button:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.button-secondary { color: var(--ink); background: transparent; border-color: var(--line); }
+.button-secondary:hover { color: var(--ink); background: var(--soft); border-color: var(--muted); }
+
+.intro { padding-block: var(--space-5) var(--space-4); }
+h1 { font-family: var(--serif); font-size: clamp(2.3rem, 4.2vw, 4.2rem); font-weight: 400; letter-spacing: -0.045em; line-height: 1.1; }
+.section { padding-block: var(--space-4); border-top: 1px solid var(--line); }
+.section-heading { margin-bottom: var(--space-3); }
+.section-heading h2 { font-family: var(--serif); font-size: 1.65rem; font-weight: 400; letter-spacing: -0.025em; line-height: 1.3; }
+.book-meta { display: flex; justify-content: space-between; gap: var(--space-2); color: var(--accent); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.card h3 { margin-top: var(--space-3); font-family: var(--serif); font-size: 1.65rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.025em; }
+.book-author { margin-top: var(--space-1); color: var(--muted); font-size: 0.8rem; }
+.book-description { padding-block: var(--space-3); font-size: 0.9rem; }
+.archive-section { padding-bottom: var(--space-4); }
+.page-number, .page-arrow, .page-ellipsis { display: inline-flex; justify-content: center; align-items: center; padding: 0.45em 0.7em; border: 1px solid transparent; border-radius: 0.2rem; font-size: 0.9rem; line-height: 1.4; background: transparent; color: var(--ink); }
+.page-number, .page-arrow { cursor: pointer; }
+.page-arrow { border-color: var(--line); }
+.page-arrow:disabled { opacity: 0.45; cursor: default; }
+.page-number[aria-current] { background: var(--accent); color: var(--surface); }
+.page-number:hover:not([aria-current]), .page-arrow:hover:not(:disabled) { background: var(--soft); }
+.result-count { color: var(--muted); font-size: 0.8rem; text-align: end; }
+.result-count strong { font-weight: 400; color: var(--ink); }
+.comment-meta { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-1) var(--space-2); margin-bottom: var(--space-2); }
+.comment-meta h3 { font-size: 0.95rem; }
+.comment-meta time { font-size: 0.75rem; color: var(--muted); }
+.comment-body > p { margin-bottom: var(--space-2); font-size: 0.9rem; }
+.text-link { color: var(--accent); font-size: 0.8rem; }
+.plan h3 { font-family: var(--serif); font-size: 1.85rem; font-weight: 400; line-height: 1.2; }
+.plan-summary { color: var(--muted); font-size: 0.85rem; }
+.price { margin-block: var(--space-2); font-family: var(--serif); font-size: 2rem; line-height: 1.25; }
+.price span { display: inline-block; font-family: Arial, sans-serif; font-size: 0.75rem; color: var(--muted); }
+.features { display: flex; flex-direction: column; gap: var(--space-1); padding-left: 1.2em; margin: 0 0 var(--space-3); font-size: 0.85rem; }
+.features li::marker { color: var(--accent); }
+.recommendation { align-self: flex-start; margin-bottom: var(--space-1); padding: 0.2em 0.6em; background: var(--accent); color: var(--surface); font-size: 0.7rem; }
+
+/* 1. Navigation: links can wrap; the action group keeps the right edge. */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-4);
+  padding-block: var(--space-3);
+}
+.nav-links {
+  display: flex;
+  flex: 1 1 35%;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  min-inline-size: 0;
+}
+.nav-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-1);
+  min-inline-size: 0;
+  margin-inline-start: auto;
+}
+
+/* 2. Cards: stretch the row and absorb free space above each button. */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: var(--space-3);
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 27%;
+  min-inline-size: min(100%, 28ch);
+  padding: var(--space-3);
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.card-button { margin-top: auto; }
+
+/* 3. Equal flex columns balance the count; narrow bars wrap into full rows.
+   The expression changes the flex basis, without assigning a fixed width. */
+.pagination {
+  --part-basis: clamp(0%, calc((52rem - 100%) * 999), 100%);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-block: var(--space-2);
+  border-block: 1px solid var(--line);
+}
+.pagination::before { content: ""; }
+.pagination::before, .pagination-controls, .result-count {
+  flex: 1 1 var(--part-basis);
+  min-inline-size: 0;
+}
+.pagination-controls, .result-count { margin-block: 0.25rem; }
+.pagination-controls, .page-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+/* 4. Text stays in its own shrinking column beside the avatar. */
+.comment {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--surface);
+  border-left: 2px solid var(--accent);
+}
+.avatar {
+  display: flex;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  inline-size: 3rem;
+  block-size: 3rem;
+  border-radius: 50%;
+  color: var(--accent);
+  background: var(--soft);
+  font-size: 0.85rem;
+}
+.comment-body { flex: 1; min-inline-size: 0; }
+
+/* 5. The content determines row height. Margins inset the ordinary plans. */
+.pricing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: var(--space-3);
+}
+.plan {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 27%;
+  gap: var(--space-1);
+  min-inline-size: min(100%, 28ch);
+  margin-block: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.plan-recommended {
+  margin-block: 0;
+  padding-block: var(--space-4);
+  border-color: var(--accent);
+  background: var(--soft);
+}
+.plan .button { margin-top: auto; }

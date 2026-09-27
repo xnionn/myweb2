@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookbound — Reading Journal</title>
+  <link rel="stylesheet" href="css/task2.css">
+  <link rel="stylesheet" href="css/task3.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar page-width" aria-label="Main navigation">
+      <a class="logo" href="task2.html">Bookbound</a>
+      <div class="nav-links">
+        <a href="task2.html#books">This month's books</a>
+        <a href="task3.html" aria-current="page">Reading journal</a>
+        <a href="task2.html#membership">Membership</a>
+        <a href="task1.html">Work of art</a>
+      </div>
+      <div class="nav-actions">
+        <a class="button button-secondary" href="task2.html#discussion">Discussion</a>
+        <a class="button" href="task2.html#membership">Join the club</a>
+      </div>
+    </nav>
+  </header>
+  <main class="page-width layout-demo">
+    <section class="intro" aria-labelledby="page-title">
+      <h1 id="page-title">The reading journal</h1>
+    </section>
+    <div class="layout-toolbar">
+      <p class="collection-count">12 reading notes</p>
+      <fieldset class="view-controls">
+        <legend class="visually-hidden">Preview a reading journal layout</legend>
+        <!-- No checked radio: the container class defines the initial view. -->
+        <input type="radio" name="view" id="grid-view">
+        <label for="grid-view">Grid</label>
+        <input type="radio" name="view" id="list-view">
+        <label for="list-view">List</label>
+        <input type="radio" name="view" id="magazine-view">
+        <label for="magazine-view">Magazine</label>
+      </fieldset>
+    </div>
+
+    <!-- Change only view-grid to view-list or view-magazine. Keep all articles unchanged. -->
+    <section class="articles view-grid" aria-label="Twelve reading notes from Bookbound">
+      <article class="story story-lead">
+        <img class="story-image" src="assets/bookbound/dandelion-wine.svg" alt="Illustrated cover of Dandelion Wine" width="720" height="540">
+        <div class="story-body">
+          <h2>Dandelion Wine</h2>
+          <p class="story-author">Ray Bradbury</p>
+          <p class="story-description">Douglas starts keeping a record of everything that makes him feel alive: new shoes, the first dandelion harvest, and evenings on the porch. On a second reading, the summer adventures matter less to me than the adults trying to make peace with time. Bring a passage you understood differently when you reread it.</p>
+        </div>
+        <time class="story-date" datetime="2026-09-26">26 Sep 2026</time>
+      </article>
+      <article class="story">
+        <img class="story-image" src="assets/bookbound/pride-and-prejudice.svg" alt="Illustrated cover of Pride and Prejudice" width="720" height="540">
+        <div class="story-body">
+          <h2>Pride and Prejudice</h2>
+          <p class="story-author">Jane Austen</p>
+          <p class="story-description">Elizabeth is a sharp observer, but she is not always right. Notice how often we accept her first impressions before the novel gives us a reason to question them.</p>
+        </div>
+        <time class="story-date" datetime="2026-09-25">25 Sep 2026</time>
+      </article>
+      <article class="story">
+        <img class="story-image" src="assets/bookbound/animal-farm.svg" alt="Illustrated cover of Animal Farm" width="720" height="540">
+        <div class="story-body">
+          <h2>Animal Farm</h2>
+          <p class="story-author">George Orwell</p>
+          <p class="story-description">Keep track of who changes the rules, and who still remembers the original ones.</p>
+        </div>
+        <time class="story-date" datetime="2026-09-24">24 Sep 2026</time>
+      </article>
+      <article class="story">
+        <img class="story-image" src="assets/bookbound/little-women.svg" alt="Illustrated cover of Little Women" width="720" height="540">
+        <div class="story-body">
+          <h2>Little Women</h2>
+          <p class="story-author">Louisa May Alcott</p>
+          <p class="story-description">The March sisters want very different futures. Jo gets much of the attention, but this time we are following Amy: what does she give up, and which decisions are really her own?</p>
+        </div>
+        <time class="story-date" datetime="2026-09-23">23 Sep 2026</time>
+      </article>
+      <article class="story">
+        <img class="story-image" src="assets/bookbound/the-hobbit.svg" alt="Illustrated cover of The Hobbit" width="720" height="540">
+        <div class="story-body">
+          <h2>The Hobbit</h2>
+          <p class="story-author">J. R. R. Tolkien</p>
+          <p class="story-description">Bilbo misses his kitchen almost as much as he fears the journey. The small comforts make the dangerous parts feel closer to home.</p>
+        </div>
+        <time class="story-date" datetime="2026-09-22">22 Sep 2026</time>
+      </article>
+      <article class="story">
+        <img class="story-image" src="assets/bookbound/a-room-of-ones-own.svg" alt="Illustrated cover of A Room of One&#x27;s Own" width="720" height="540">
+        <div class="story-body">
+          <h2>A Room of One&#x27;s Own</h2>
+          <p class="story-author">Virginia Woolf</p>
+          <p class="story-description">Who has the time and space to write? Woolf follows this question through libraries, dining rooms, and an imagined life for Shakespeare&#x27;s sister. For our discussion, underline one practical obstacle she describes and consider whether it still exists.</p>
+        </div>
+        <time class="story-date" datetime="2026-09-21">21 Sep 2026</time>
+      </article>
+      <article class="story">
+        <img class="story-image" src="assets/bookbound/jane-eyre.svg" alt="Illustrated cover of Jane Eyre" width="720" height="540">
+        <div class="story-body">
+          <h2>Jane Eyre</h2>
+          <p class="story-author">Charlotte Brontë</p>
+          <p class="story-description">Jane insists on being heard, even when speaking costs her something. We will compare the choices she makes at Gateshead, Lowood, and Thornfield.</p>
+        </div>
+        <time class="story-date" datetime="2026-09-20">20 Sep 2026</time>
+      </article>
+      <article class="story">
+        <img class="story-image" src="assets/bookbound/the-old-man-and-the-sea.svg" alt="Illustrated cover of The Old Man and the Sea" width="720" height="540">
+        <div class="story-body">
+          <h2>The Old Man and the Sea</h2>
+          <p class="story-author">Ernest Hemingway</p>
+          <p class="story-description">A fisherman, a marlin, and a struggle that leaves room for more than one idea of victory.</p>
+        </div>
+        <time class="story-date" datetime="2026-09-19">19 Sep 2026</time>
+      </article>
+      <article class="story">
+        <img class="story-image" src="assets/bookbound/the-little-prince.svg" alt="Illustrated cover of The Little Prince" width="720" height="540">
+        <div class="story-body">
+          <h2>The Little Prince</h2>
+          <p class="story-author">Antoine de Saint-Exupéry</p>
+          <p class="story-description">The adults on each planet have a very convincing reason for being busy. Which one felt most familiar?</p>
+        </div>
+        <time class="story-date" datetime="2026-09-18">18 Sep 2026</time>
+      </article>
+      <article class="story">
+        <img class="story-image" src="assets/bookbound/fahrenheit-451.svg" alt="Illustrated cover of Fahrenheit 451" width="720" height="540">
+        <div class="story-body">
+          <h2>Fahrenheit 451</h2>
+          <p class="story-author">Ray Bradbury</p>
+          <p class="story-description">Montag begins with a job he does not question. Pay attention to the conversations that disturb that certainty, especially the ones where someone simply asks him whether he is happy.</p>
+        </div>
+        <time class="story-date" datetime="2026-09-17">17 Sep 2026</time>
+      </article>
+      <article class="story">
+        <img class="story-image" src="assets/bookbound/the-secret-garden.svg" alt="Illustrated cover of The Secret Garden" width="720" height="540">
+        <div class="story-body">
+          <h2>The Secret Garden</h2>
+          <p class="story-author">Frances Hodgson Burnett</p>
+          <p class="story-description">Mary changes slowly, through work and friendship. The garden gives her something to care about before she knows how to care for other people.</p>
+        </div>
+        <time class="story-date" datetime="2026-09-16">16 Sep 2026</time>
+      </article>
+      <article class="story">
+        <img class="story-image" src="assets/bookbound/the-great-gatsby.svg" alt="Illustrated cover of The Great Gatsby" width="720" height="540">
+        <div class="story-body">
+          <h2>The Great Gatsby</h2>
+          <p class="story-author">F. Scott Fitzgerald</p>
+          <p class="story-description">Nick says he reserves judgement, then spends a whole novel judging. Read the opening pages again after the ending and see how much you trust him.</p>
+        </div>
+        <time class="story-date" datetime="2026-09-15">15 Sep 2026</time>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
