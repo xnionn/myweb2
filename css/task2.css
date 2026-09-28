@@ -1,4 +1,3 @@
-/* Shared colors, typography and spacing for the whole library. */
 :root {
   --paper: #f7f5f0;
   --surface: #fffdf9;
@@ -83,7 +82,7 @@ h1 { font-family: var(--serif); font-size: clamp(2.3rem, 4.2vw, 4.2rem); font-we
 .features li::marker { color: var(--accent); }
 .recommendation { align-self: flex-start; margin-bottom: var(--space-1); padding: 0.2em 0.6em; background: var(--accent); color: var(--surface); font-size: 0.7rem; }
 
-/* 1. Navigation: links can wrap; the action group keeps the right edge. */
+
 .navbar {
   display: flex;
   flex-wrap: wrap;
@@ -107,7 +106,7 @@ h1 { font-family: var(--serif); font-size: clamp(2.3rem, 4.2vw, 4.2rem); font-we
   margin-inline-start: auto;
 }
 
-/* 2. Cards: stretch the row and absorb free space above each button. */
+
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -125,8 +124,7 @@ h1 { font-family: var(--serif); font-size: clamp(2.3rem, 4.2vw, 4.2rem); font-we
 }
 .card-button { margin-top: auto; }
 
-/* 3. Equal flex columns balance the count; narrow bars wrap into full rows.
-   The expression changes the flex basis, without assigning a fixed width. */
+
 .pagination {
   --part-basis: clamp(0%, calc((52rem - 100%) * 999), 100%);
   display: flex;
@@ -149,7 +147,7 @@ h1 { font-family: var(--serif); font-size: clamp(2.3rem, 4.2vw, 4.2rem); font-we
   gap: 0.25rem;
 }
 
-/* 4. Text stays in its own shrinking column beside the avatar. */
+
 .comment {
   display: flex;
   align-items: flex-start;
@@ -172,7 +170,6 @@ h1 { font-family: var(--serif); font-size: clamp(2.3rem, 4.2vw, 4.2rem); font-we
 }
 .comment-body { flex: 1; min-inline-size: 0; }
 
-/* 5. The content determines row height. Margins inset the ordinary plans. */
 .pricing {
   display: flex;
   flex-wrap: wrap;

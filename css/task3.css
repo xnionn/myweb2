@@ -1,4 +1,4 @@
-/* Bookbound's colors, spacing, header and type are shared through task2.css. */
+
 .nav-links a[aria-current="page"] { color: var(--accent); text-decoration: underline; }
 .layout-demo { padding-bottom: var(--space-5); }
 .layout-toolbar {
@@ -39,8 +39,7 @@
   white-space: nowrap;
 }
 
-/* The collection always uses Grid. Every article always uses Flexbox.
-   A mode class controls the initial layout; the radios are CSS-only previews. */
+
 .articles {
   --gap: clamp(0.75rem, 1.6vw, 1.5rem);
   --direction: column;
@@ -61,13 +60,13 @@
   align-items: stretch;
 }
 
-/* 1. auto-fit adds or removes columns as the available space changes. */
+
 .view-grid,
 .layout-demo:has(#grid-view:checked) .articles {
   --tracks: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
 }
 
-/* 2. One Grid column; Flexbox makes each item a compact horizontal row. */
+
 .view-list,
 .layout-demo:has(#list-view:checked) .articles {
   --tracks: minmax(0, 1fr);
@@ -81,8 +80,7 @@
   --title-size: clamp(1.1rem, 1.6vw, 1.5rem);
 }
 
-/* 3. At least two flexible tracks always fit, even on a narrow screen.
-   The lead can span two columns without creating an overflowing track. */
+
 .view-magazine,
 .layout-demo:has(#magazine-view:checked) .articles {
   --tracks: repeat(auto-fit, minmax(min(calc((100% - var(--gap)) / 2), 17rem), 1fr));
@@ -91,8 +89,7 @@
   --lead-title: clamp(1.8rem, 3.3vw, 3rem);
 }
 
-/* A preview resets mode-specific values before applying its own rules.
-   These resets matter when the source class is already list or magazine. */
+
 .layout-demo:has(#grid-view:checked, #magazine-view:checked) .articles {
   --direction: column;
   --image-size: 100%;
